@@ -1,0 +1,8 @@
+mode: set
+github.com/Mahran1998/pipewatch/cmd/pipewatch/main.go:12.13,22.76 4 0
+github.com/Mahran1998/pipewatch/cmd/pipewatch/main.go:22.76,24.3 1 0
+github.com/Mahran1998/pipewatch/cmd/pipewatch/main.go:27.32,28.32 1 0
+github.com/Mahran1998/pipewatch/cmd/pipewatch/main.go:28.32,30.3 1 0
+github.com/Mahran1998/pipewatch/cmd/pipewatch/main.go:31.2,31.12 1 0
+github.com/Mahran1998/pipewatch/internal/httpapi/health.go:8.60,11.2 2 1
+github.com/Mahran1998/pipewatch/internal/httpapi/router.go:5.28,9.2 3 1
