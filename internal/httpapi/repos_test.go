@@ -6,12 +6,13 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/Mahran1998/pipewatch/internal/repos"
 )
 
 func TestRepos_POST_then_GET(t *testing.T) {
-	h := Router()
+	h := Router(repos.NewMemoryStore())
 
-	// POST /repos
 	body := []byte(`{"provider":"github","full_name":"Mahran1998/pipewatch","base_url":"https://github.com"}`)
 	req := httptest.NewRequest(http.MethodPost, "/repos", bytes.NewReader(body))
 	req.Header.Set("Content-Type", "application/json")
@@ -22,7 +23,6 @@ func TestRepos_POST_then_GET(t *testing.T) {
 		t.Fatalf("POST expected 201, got %d, body=%s", rec.Code, rec.Body.String())
 	}
 
-	// GET /repos
 	req2 := httptest.NewRequest(http.MethodGet, "/repos", nil)
 	rec2 := httptest.NewRecorder()
 

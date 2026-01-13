@@ -14,12 +14,17 @@ type addRepoRequest struct {
 	BaseURL  string `json:"base_url"`
 }
 
-func reposHandler(store *repos.Store) http.HandlerFunc {
+func reposHandler(store repos.Store) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
+			list, err := store.List(r.Context())
+			if err != nil {
+				http.Error(w, "db error", http.StatusInternalServerError)
+				return
+			}
 			w.Header().Set("Content-Type", "application/json")
-			_ = json.NewEncoder(w).Encode(store.List())
+			_ = json.NewEncoder(w).Encode(list)
 			return
 
 		case http.MethodPost:
@@ -38,7 +43,11 @@ func reposHandler(store *repos.Store) http.HandlerFunc {
 				return
 			}
 
-			created := store.Add(req.Provider, req.FullName, req.BaseURL)
+			created, err := store.Add(r.Context(), req.Provider, req.FullName, req.BaseURL)
+			if err != nil {
+				http.Error(w, "db error", http.StatusInternalServerError)
+				return
+			}
 
 			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusCreated)

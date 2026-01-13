@@ -6,9 +6,7 @@ import (
 	"github.com/Mahran1998/pipewatch/internal/repos"
 )
 
-func Router() http.Handler {
-	store := repos.NewStore()
-
+func Router(store repos.Store) http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/health", healthHandler)
 	mux.HandleFunc("/repos", reposHandler(store))
