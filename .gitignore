@@ -1,0 +1,13 @@
+# Binaries
+/pipewatch
+*.exe
+*.out
+
+# Generated test artifacts
+coverage.out
+coverage.html
+junit.xml
+
+# Editor
+.vscode/
+.idea/

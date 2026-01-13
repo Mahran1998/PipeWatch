@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites tests="1">
-	<testsuite name="github.com/Mahran1998/pipewatch/cmd/pipewatch" tests="0" failures="0" errors="0" id="0" hostname="Eng-Mahran" time="0.000" timestamp="2026-01-12T23:18:01+01:00"></testsuite>
-	<testsuite name="github.com/Mahran1998/pipewatch/internal/httpapi" tests="1" failures="0" errors="0" id="1" hostname="Eng-Mahran" time="0.006" timestamp="2026-01-12T23:18:01+01:00">
-		<testcase name="TestHealth" classname="github.com/Mahran1998/pipewatch/internal/httpapi" time="0.000"></testcase>
-	</testsuite>
-</testsuites>
